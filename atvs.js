@@ -6,15 +6,15 @@ let num2 = 5
 // let num5 = -3
 
 
-//em ordem de feitio
-// parOuImpar(num)//1
-// numeroMaoir(num, num2)//2
-// somaFatorial(num)//3
-// fatorial(num)//4
-// contarNumeros()//5
-// operacoes(num, num2)//6
+em ordem de feitio
+parOuImpar(num)//1
+numeroMaoir(num, num2)//2
+somaFatorial(num)//3
+fatorial(num)//4
+contarNumeros()//5
+operacoes(num, num2)//6
 numerosPrimo(num)//7
-// tabuada(num)//8
+tabuada(num)//8
 
 function parOuImpar(n) {
     if (num % 2 == 0) {
@@ -83,13 +83,15 @@ function divide(n1, n2) {
 }
 
 function numerosPrimo(n){
+    ndivisoes = 0
     primo = true
-    for (i = 0; i < n ;i++){
-            if (i != 1 && i != n){
-                console.log("aaa")
+    for (i = 1; i <= n ;i++){
+            if (n%i == 0){
+                ndivisoes++
+                if (ndivisoes == 2){
                 primo = true
+                }
             } else {
-                console.log("aaa")
                 primo = false
             }
         }
