@@ -6,7 +6,7 @@ let num2 = 5
 // let num5 = -3
 
 
-em ordem de feitio
+//em ordem de feitio
 parOuImpar(num)//1
 numeroMaoir(num, num2)//2
 somaFatorial(num)//3
