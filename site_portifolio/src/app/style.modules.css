@@ -1,0 +1,35 @@
+.topacidade {
+      opacity: 0.5;
+}
+
+.bgDark {
+      background-color: rgba(32, 28, 45, 1);
+      background: linear-gradient(180deg, rgba(32, 28, 45, 1) 0%, rgba(32, 28, 45, 1) 50%, rgba(43, 38, 60, 1) 100%);
+      background-repeat: no-repeat;
+}
+
+a.nounderline {
+      text-decoration: none;
+      color: rgba(153, 143, 175, 1)
+}
+
+.top-9 {
+      margin-top: 80px;
+}
+
+.mt-100 {
+      margin-top: 1000px;
+}
+
+.cor1 {
+      color: rgba(103, 159, 188, 1);
+}
+.cor2 {
+      color: rgba(153, 143, 175, 1);
+}
+.mt-10{
+      margin-top: 300px;
+}
+.mb-10{
+      margin-bottom: 350px;
+}
