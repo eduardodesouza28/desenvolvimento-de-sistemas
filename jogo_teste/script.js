@@ -2,9 +2,12 @@ const canvas = document.getElementById("canvaJogo")
 const ctx = canvas.getContext('2d');
 canvas.width = 400;
 canvas.height = 400;
-let click = false
+let gameover = false
 let obsR = 100
-let spacePressed = false;
+let spacePressed = false
+let points = 0
+const img = document.getElementById("flappy")
+const pat = ctx.createPattern(img, "no-repeat")
 
 const player = {
     posy: canvas.height - 20,
@@ -34,19 +37,20 @@ const obstacule2 = {
 }
 
 document.addEventListener("click", (e) => {
-    if (click == true) {
+    if (gameover == true) {
         location.reload()
     }
 })
 
 document.addEventListener("keydown", (e) => {
     if (e.code == "Space") {
-        spacePressed = true
-        if (player.onGround) {
-            player.jumpVelocity = 10
+        if (gameover == false) {
+            spacePressed = true
+            player.jumpVelocity = 5
             player.jumping = true
             player.onGround = false
         }
+
     }
 });
 
@@ -61,17 +65,23 @@ function jump() {
 }
 
 function drawChar() {
-    ctx.fillStyle = 'red'
-    ctx.fillRect(player.posx, player.posy, player.sizex, player.sizey)
+    ctx.drawImage(img, player.posx, player.posy, player.sizex, player.sizey)
+    // ctx.fillStyle = pat
+    // ctx.fillRect(player.posx, player.posy, player.sizex, player.sizey)
 
 }
+function drawPoints() {
+    ctx.fillStyle = "black"
+    ctx.font = "40px Arial"
+    ctx.fillText(points, canvas.width - 200, canvas.height - 350)
 
+}
 function drawObs() {
-    ctx.fillStyle = 'white'
+    ctx.fillStyle = 'green'
     ctx.fillRect(obstacule.posx, obstacule.posy, obstacule.sizex, obstacule.sizey)
 }
 function drawObs2() {
-    ctx.fillStyle = 'white'
+    ctx.fillStyle = 'green'
     ctx.fillRect(obstacule2.posx, obstacule2.posy, obstacule2.sizex, obstacule2.sizey)
 }
 
@@ -100,13 +110,14 @@ function resetObs() {
         if (obsR >= 170) {
             obsR = 120
         }
-        obstacule.posx = canvas.width + 10
+        obstacule.posx = canvas.width + 20
         obstacule.velocity += 0.5
-        obstacule2.posx = canvas.width + 10
+        obstacule2.posx = canvas.width + 20
         obstacule2.velocity += 0.5
         obstacule.sizey = obsR
         obstacule.posy = canvas.height - obsR
         obstacule2.sizey = obsR
+        points++
     }
 }
 
@@ -139,7 +150,7 @@ function gameOver() {
     ctx.fillStyle = "black"
     ctx.font = "40px Arial"
     ctx.fillText("game over", (canvas.width / 2) - 95, (canvas.height / 2))
-    click = true
+    gameover = true
 }
 
 function loop() {
@@ -147,6 +158,7 @@ function loop() {
     verifyCollision()
     moveChar()
     drawObs2()
+    drawPoints()
     moveObs()
     ground()
     resetObs()
