@@ -12,11 +12,11 @@ const menino = new Pessoa(
 )
 
 const propCarro = {
-    tipo: 'sedan',
+    tipo: 'carro',
     ano: 2019,
     marca: 'fiat',
     cor: 'prata',
-    velocidade: 10,
+    velocidade: 0,
     passageiros: menino.nome
 }
 
@@ -27,33 +27,41 @@ const porpBarco = {
 }
 
 class Veiculo {
+    #velocidade
     constructor(propCarro) {
         this.tipo = propCarro.tipo
         this.ano = propCarro.ano
         this.marca = propCarro.marca
         this.cor = propCarro.cor
-        this.velocidade = propCarro.velocidade
+        this.#velocidade = propCarro.velocidade
         this.passageiros = propCarro.passageiros
     }
     acelerar = function () {
-        this.velocidade += 10
+        this.#velocidade += 10
     }
     freiar = function () {
-        this.velocidade -= 10
+        this.#velocidade -= 10
+    }
+    get_vl = function() {
+        return(this.#velocidade)
     }
 }
 
 class Barco extends Veiculo {
+    #noz
     constructor(propCarro) {
         super(propCarro),
         this.tipo = 'barco'
-        this.nós = 0
+        this.#noz = 0
     }
     acelerar = function () {
-        this.nós += 5
+        this.#noz += 5
     }
     freiar = function () {
-        this.nós -= 5
+        this.#noz -= 5
+    }
+    get_vl = function() {
+        return(this.#noz)
     }
 }
 
@@ -69,6 +77,7 @@ for (i = 0; i < 3; i++) {
     barco.acelerar()
 }
 barco.freiar()
-console.log(barco)
+console.log(carro)
 carro.acelerar()
+console.log(carro.get_vl())
 
