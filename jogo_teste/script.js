@@ -17,21 +17,22 @@ const player = {
     jumpVelocity: 0,
     gravity: 0.5,
     jumping: false,
-    onGround: true
+    onGround: true,
+    onRoof: false
 
 }
 
 const obstacule = {
     posx: canvas.width + 10,
     posy: canvas.height - obsR,
-    sizex: 20,
+    sizex: 50,
     sizey: obsR,
     velocity: 5
 }
 const obstacule2 = {
     posx: canvas.width + 10,
     posy: 0,
-    sizex: 20,
+    sizex: 50,
     sizey: obsR,
     velocity: 5
 }
@@ -44,11 +45,15 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("keydown", (e) => {
     if (e.code == "Space") {
-        if (gameover == false) {
+        if (gameover == false && player.onRoof == false) {
             spacePressed = true
             player.jumpVelocity = 5
             player.jumping = true
             player.onGround = false
+            player.onRoof = false
+        }
+        if (gameover) {
+            location.reload()
         }
 
     }
@@ -59,10 +64,6 @@ document.addEventListener("keyup", (e) => {
         spacePressed = false
     }
 })
-
-function jump() {
-    player.posy -= player.jumpVelocity
-}
 
 function drawChar() {
     ctx.drawImage(img, player.posx, player.posy, player.sizex, player.sizey)
@@ -92,16 +93,33 @@ function ground() {
         player.onGround = true
         player.jumping = false
     }
+
+}
+
+function jump() {
+    player.posy -= player.jumpVelocity
 }
 
 function moveChar() {
-    if (player.jumping == true) {
+    if (player.posy <= 0) {
+        player.onRoof = true
+        player.jumpVelocity = 0
+        player.posy = 0.1
+        player.posy -= player.jumpVelocity
+        // player.jumpVelocity -= player.gravity
+    } else {
+        player.onRoof = false
+        if (player.jumping == true) {
+            // jump()
+            if (spacePressed && player.jumpVelocity < 15) {
+                player.jumpVelocity += 0.5
+            }
+        }
         jump()
-        player.jumpVelocity -= player.gravity
     }
-    if (spacePressed && player.jumpVelocity < 15) {
-        player.jumpVelocity += 0.5
-    }
+    
+
+    player.jumpVelocity -= player.gravity
 }
 
 function resetObs() {
