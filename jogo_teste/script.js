@@ -67,9 +67,6 @@ document.addEventListener("keyup", (e) => {
 
 function drawChar() {
     ctx.drawImage(img, player.posx, player.posy, player.sizex, player.sizey)
-    // ctx.fillStyle = pat
-    // ctx.fillRect(player.posx, player.posy, player.sizex, player.sizey)
-
 }
 function drawPoints() {
     ctx.fillStyle = "black"
@@ -106,7 +103,6 @@ function moveChar() {
         player.jumpVelocity = 0
         player.posy = 0.1
         player.posy -= player.jumpVelocity
-        // player.jumpVelocity -= player.gravity
     } else {
         player.onRoof = false
         if (player.jumping == true) {
@@ -117,7 +113,7 @@ function moveChar() {
         }
         jump()
     }
-    
+
 
     player.jumpVelocity -= player.gravity
 }
