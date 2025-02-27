@@ -3,23 +3,48 @@ const canvas = document.getElementById("canvaJogo")
 const ctx = canvas.getContext('2d')
 canvas.width = 400
 canvas.height = 400
+let framex = 0;
+let framey = 0;
+let gameFrame = 0
+const staggerFrames = 8
+let nR = Math.floor(Math.random() * 200 + 1)
+let nR2 = Math.floor(Math.random() * 200 + 1)
 
-class Player {
+class Entity {
+    constructor(sizex, sizey, posx, posy) {
+        this.sizex = sizex
+        this.sizey = sizey
+        this.posx = posx
+        this.posy = posy
+    }
+    draw() {
+        ctx.fillStyle = 'white'
+        ctx.fillRect(this.posx, this.posy, this.sizex, this.sizey)
+    }
+}
+
+class Player extends Entity {
     constructor() {
-        this.posx = 25
-        this.posy = canvas.height - 20
-        this.sizex = 20
-        this.sizey = 20
+        super(50, 50, 25, canvas.height - 200)
         this.jumpVelocity = 0
         this.gravity = 0.5
         this.jumping = false
-        this.onGround = true
         this.onRoof = false
         this.spacePressed = false
     }
 
     draw() {
-        ctx.drawImage(document.getElementById("flappy"), this.posx, this.posy, this.sizex, this.sizey)
+
+        ctx.drawImage(document.getElementById("flappy"), framex * 92, framey * 64, 92, 64, this.posx, this.posy, this.sizex, this.sizey)
+        if (gameFrame % staggerFrames == 0) {
+            if (framex < 2) {
+                framex++
+            }
+            else {
+                framex = 0
+            }
+        }
+        gameFrame++
     }
 
     jump() {
@@ -37,25 +62,22 @@ class Player {
             if (this.posy >= canvas.height - this.sizey) {
                 this.posy = canvas.height - this.sizey
                 this.jumping = false
-                this.onGround = true
                 this.jumpVelocity = 0
             }
         }
     }
 }
 
-class Obstacle {
+class Obstacle extends Entity {
     constructor(posx, posy, sizex, sizey) {
-        this.posx = posx
-        this.posy = posy
-        this.sizex = sizex
-        this.sizey = sizey
+        super(sizex, sizey, posx, posy)
         this.velocity = 5
     }
 
     draw() {
-        ctx.fillStyle = 'green'
-        ctx.fillRect(this.posx, this.posy, this.sizex, this.sizey)
+        ctx.drawImage(document.getElementById("pipe"), this.posx, this.posy)
+        // ctx.fillStyle = 'green'
+        // ctx.fillRect(this.posx, this.posy, this.sizex, this.sizey)
     }
 
     move() {
@@ -63,12 +85,11 @@ class Obstacle {
     }
 
     reset() {
-        let nR = Math.floor(Math.random() * 200 + 1)
         this.posx = canvas.width + 10
         if (nR >= 150) {
             nR = 150
         }
-        if (nR <= 20){
+        if (nR <= 20) {
             nR = 25
         }
         this.sizey = nR
@@ -76,18 +97,16 @@ class Obstacle {
         this.velocity += 0.5
     }
 }
-class ObstacleUp {
+class ObstacleUp extends Entity {
     constructor(posx, posy, sizex, sizey) {
-        this.posx = posx
-        this.posy = posy
-        this.sizex = sizex
-        this.sizey = sizey
+        super(sizex, sizey, posx, posy)
         this.velocity = 5
     }
 
     draw() {
-        ctx.fillStyle = 'green'
-        ctx.fillRect(this.posx, this.posy, this.sizex, this.sizey)
+        // ctx.fillStyle = 'green'
+        // ctx.fillRect(this.posx, this.posy, this.sizex, this.sizey)
+        ctx.drawImage(document.getElementById("pipeUp"), this.posx, this.sizey - 200)   
     }
 
     move() {
@@ -95,12 +114,11 @@ class ObstacleUp {
     }
 
     reset() {
-        let nR = Math.floor(Math.random() * 200 + 1)
         this.posx = canvas.width + 10
-        if (nR >= 150) {
-            nR = 150
+        if (nR2 >= 150) {
+            nR2 = 150
         }
-        if (nR <= 20){
+        if (nR <= 20) {
             nR = 25
         }
         this.sizey = nR
@@ -110,11 +128,12 @@ class ObstacleUp {
 }
 
 class Game {
+    #points
     constructor() {
         this.player = new Player()
-        this.obstacle1 = new Obstacle(canvas.width + 10, canvas.height - 100, 50, 100)
-        this.obstacle2 = new ObstacleUp(canvas.width + 10, 0, 50, 100)
-        this.points = 0
+        this.obstacle1 = new Obstacle(canvas.width + 10, canvas.height - 100, 137, 100)
+        this.obstacle2 = new ObstacleUp(canvas.width + 10, 0, 137, 100)
+        this.#points = 0
         this.gameover = false
 
         this.init()
@@ -151,17 +170,21 @@ class Game {
     drawPoints() {
         ctx.fillStyle = "black"
         ctx.font = "40px Arial"
-        ctx.fillText(this.points, canvas.width - 200, canvas.height - 350)
+        ctx.fillText(this.#points, canvas.width - 220, canvas.height - 350)
     }
 
     resetObstacles() {
-        if (this.obstacle1.posx < -50) {
+        if (this.obstacle1.posx < -137) {
             this.obstacle1.reset()
-            this.points++
+            this.#points++
         }
-        if (this.obstacle2.posx < -50) {
+        if (this.obstacle2.posx < -137) {
             this.obstacle2.reset()
+            nR = Math.floor(Math.random() * 200 + 1)
+            nR2 = Math.floor(Math.random() * 200 + 1)
+
         }
+
     }
 
     moveObstacles() {
