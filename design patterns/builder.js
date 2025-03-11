@@ -1,12 +1,12 @@
 class Hamburguer {
-    constructor(pao,carne,queijo,molho,salada){
+    constructor(pao, carne, queijo, molho, salada) {
         this.pao = pao
         this.carne = carne
         this.queijo = queijo
         this.molho = molho
         this.salada = salada
     }
-    getBurguer(){
+    getBurguer() {
         console.log(`tem ${this.pao}, ${this.carne}`)
     }
 }
@@ -16,10 +16,10 @@ class Hamburguer {
 
 class HamburguerBuilder {
     constructor() {
-        this.pao = 'trigo';
-        this.carne = 'costela';
-        this.queijo = 'mussarela';
-        this.molho = 'molho especial';
+        this.pao = 'trigo'
+        this.carne = 'costela'
+        this.queijo = 'mussarela'
+        this.molho = 'molho especial'
         this.salada = false
     }
     setPao(pao) {
@@ -43,13 +43,14 @@ class HamburguerBuilder {
         return this
     }
     getBurguer() {
-        console.log(`tem: ${this.pao}, ${this.carne}`)
+        console.log(`tem: ${this.pao}, ${this.carne}, ${this.queijo}, ${this.molho}, ${this.salada}`)
     }
     build() {
-        return new Hamburguer(this.pao,this.carne,this.queijo,this.molho,this.salada)
+        return new Hamburguer(this.pao, this.carne, this.queijo, this.molho, this.salada)
     }
 }
 
 const burguer = new HamburguerBuilder()
 burguer.setSalada('alface').setCarne('patinho').build()
 burguer.getBurguer()
+console.log(burguer.pao)
