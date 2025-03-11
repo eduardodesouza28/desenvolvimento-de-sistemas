@@ -76,8 +76,6 @@ class Obstacle extends Entity {
 
     draw() {
         ctx.drawImage(document.getElementById("pipe"), this.posx, this.posy)
-        // ctx.fillStyle = 'green'
-        // ctx.fillRect(this.posx, this.posy, this.sizex, this.sizey)
     }
 
     move() {
@@ -86,8 +84,8 @@ class Obstacle extends Entity {
 
     reset() {
         this.posx = canvas.width + 10
-        if (nR >= 150) {
-            nR = 150
+        if (nR >= 140) {
+            nR = 140
         }
         if (nR <= 20) {
             nR = 25
@@ -104,8 +102,6 @@ class ObstacleUp extends Entity {
     }
 
     draw() {
-        // ctx.fillStyle = 'green'
-        // ctx.fillRect(this.posx, this.posy, this.sizex, this.sizey)
         ctx.drawImage(document.getElementById("pipeUp"), this.posx, this.sizey - 200)   
     }
 
@@ -115,8 +111,8 @@ class ObstacleUp extends Entity {
 
     reset() {
         this.posx = canvas.width + 10
-        if (nR2 >= 150) {
-            nR2 = 150
+        if (nR2 >= 140) {
+            nR2 = 140
         }
         if (nR <= 20) {
             nR = 25
