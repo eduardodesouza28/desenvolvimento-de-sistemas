@@ -1,0 +1,4 @@
+usando localStorage é possível armazenar dados no navegador do usuário, 
+porém, é importante lembrar que o localStorage é limitado a 5mb de armazenamento
+e é uma forma de armazenamento não segura,
+ou seja, não é recomendado armazenar informações sensíveis.
