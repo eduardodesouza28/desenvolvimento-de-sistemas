@@ -1,0 +1,11 @@
+function kgLibres(num, measuring) {
+  let result
+  if (measuring == "kg"){
+    result = num * 2.205
+  } else {
+    result = num / 2.205
+  }
+  return result
+}
+
+module.exports = {kgLibres}
