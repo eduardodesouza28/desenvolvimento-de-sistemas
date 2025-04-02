@@ -1,3 +1,4 @@
+import './button.css'
 import React from 'react';
 
 function Button({ text, id, onClick }) {

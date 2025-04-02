@@ -5,7 +5,7 @@ function CheckBox({ value, onChange }) {
 
   const handleChange = () => {
     setIsChecked(!isChecked);
-    onChange(!isChecked); // Chama a função de callback para atualizar o estado no componente pai
+    onChange(!isChecked);
   };
 
   return (

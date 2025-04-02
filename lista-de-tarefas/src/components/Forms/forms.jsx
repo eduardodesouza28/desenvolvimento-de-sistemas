@@ -1,67 +1,3 @@
-// import React, { useState } from 'react';
-// import Inputs from '../inputs/inputs';
-// import Button from '../button/button';
-// import TaskList from '../taskList/taskList';
-
-// function Forms({ labelsinput, placeholderinput, btntext, btnid }) {
-//   const textLabels = labelsinput;
-//   const splitTextLabels = textLabels.split(",");
-//   const textplacehr = placeholderinput;
-//   const splitTextplacehr = textplacehr.split(",");
-
-//   const [formData, setFormData] = useState({
-//     Nome: "",
-//     Descricao: "",
-//   });
-
-//   const [tasks, settasks] = useState([]);
-
-//   function handleSubmit(e) {
-//     e.preventDefault();
-
-//     const newtask = {
-//       Nome: formData.Nome,
-//       Descricao: formData.Descricao,
-//     };
-
-//     settasks(prevtasks => [...prevtasks, newtask]);
-
-//     setFormData({
-//       Nome: "",
-//       Descricao: "",
-//     });
-//   }
-
-
-
-//   return (
-//     <section className='forms'>
-//       <form onSubmit={handleSubmit}>
-//         <div className="forms">
-//           {splitTextLabels.map((label, index) => (
-//             <Inputs
-//               key={index}
-//               id={label}
-//               label={label}
-//               placehr={splitTextplacehr[index]}
-//               required={true}
-//               value={formData[label.trim()] || ""}
-//               onChange={(e) => handleInputChange(label.trim(), e.target.value)}
-//             />
-//           ))}
-//           <Button text={btntext} id={btnid} />
-//         </div>
-//       </form>
-//       <div>
-//         <h3>Tarefas:</h3>
-//         <TaskList tasks={tasks} />
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default Forms;
-
 import React, { useState } from 'react';
 import Inputs from '../inputs/inputs';
 import Button from '../button/button';
@@ -98,6 +34,13 @@ function Forms({ labelsinput, placeholderinput, btntext, btnid }) {
     });
   }
 
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
   const toggleTaskStatus = (id) => {
     setTasks(prevTasks =>
       prevTasks.map(task =>
@@ -108,11 +51,8 @@ function Forms({ labelsinput, placeholderinput, btntext, btnid }) {
     );
   };
 
-  const handleInputChange = (field, value) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
+  const deleteTask = (id) => {
+    setTasks(prevTasks => prevTasks.filter(task => task.id !== id)); // Removendo a tarefa
   };
 
   return (
@@ -127,7 +67,7 @@ function Forms({ labelsinput, placeholderinput, btntext, btnid }) {
               placehr={splitTextplacehr[index]}
               required={true}
               value={formData[label.trim()] || ""}
-              onChange={(e) => handleInputChange(label.trim(), e.target.value)}
+              onChange={(e) => handleInputChange(label.trim(), e.target.value)} // Chamando a função handleInputChange
             />
           ))}
           <Button text={btntext} id={btnid} />
@@ -135,7 +75,7 @@ function Forms({ labelsinput, placeholderinput, btntext, btnid }) {
       </form>
       <div>
         <h3>Colaboradores:</h3>
-        <TaskList tasks={tasks} toggleTaskStatus={toggleTaskStatus} /> {/* Passando a função de toggle */}
+        <TaskList tasks={tasks} toggleTaskStatus={toggleTaskStatus} deleteTask={deleteTask} /> {/* Passando a função de delete */}
       </div>
     </section>
   );
