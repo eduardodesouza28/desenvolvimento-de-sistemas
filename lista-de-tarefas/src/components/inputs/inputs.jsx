@@ -3,7 +3,7 @@ import React from 'react';
 function Inputs({ label, placehr, required, id, value, onChange }) {
   return (
     <div className="inputs">
-      <label id={id}>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <input
         type="text"
         placeholder={placehr}

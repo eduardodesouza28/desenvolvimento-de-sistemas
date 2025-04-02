@@ -1,10 +1,11 @@
-// import react from "react";
+import React from 'react';
 
-function Button(children, id, onclick) {
-  const text = children.text;
+function Button({ text, id, onClick }) {
   return (
     <div>
-      <button className="button-card" id={id} onClick={onclick}>{text}</button>
+      <button className="button-card" id={id} onClick={onClick}>
+        {text}
+      </button>
     </div>
   );
 }
