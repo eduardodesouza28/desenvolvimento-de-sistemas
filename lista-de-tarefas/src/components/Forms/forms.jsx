@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Inputs from '../inputs/inputs';
 import Button from '../button/button';
 import TaskList from '../taskList/taskList';
+import FilterBar from '../FilterBar/FilterBar'; // Importando o FilterBar
 
 function Forms({ labelsinput, placeholderinput, btntext, btnid }) {
   const textLabels = labelsinput;
@@ -15,6 +16,7 @@ function Forms({ labelsinput, placeholderinput, btntext, btnid }) {
   });
 
   const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState('all'); // Estado para o filtro
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -23,7 +25,7 @@ function Forms({ labelsinput, placeholderinput, btntext, btnid }) {
       id: tasks.length + 1, // Gerando um ID simples
       name: formData.Nome,
       description: formData.Descricao,
-      status: "pendente",
+      status: "pendente", // Status inicial
     };
 
     setTasks(prevTasks => [...prevTasks, newTask]);
@@ -55,6 +57,13 @@ function Forms({ labelsinput, placeholderinput, btntext, btnid }) {
     setTasks(prevTasks => prevTasks.filter(task => task.id !== id)); // Removendo a tarefa
   };
 
+  // Filtrando as tarefas com base no estado do filtro
+  const filteredTasks = tasks.filter(task => {
+    if (filter === 'completed') return task.status === 'concluída';
+    if (filter === 'pending') return task.status === 'pendente';
+    return true; // Para 'all'
+  });
+
   return (
     <section className='forms'>
       <form onSubmit={handleSubmit}>
@@ -73,9 +82,10 @@ function Forms({ labelsinput, placeholderinput, btntext, btnid }) {
           <Button text={btntext} id={btnid} />
         </div>
       </form>
+      <FilterBar setFilter={setFilter} /> {/* Adicionando o FilterBar */}
       <div>
-        <h3>Colaboradores:</h3>
-        <TaskList tasks={tasks} toggleTaskStatus={toggleTaskStatus} deleteTask={deleteTask} /> {/* Passando a função de delete */}
+        <h3>Tarefas:</h3>
+        <TaskList tasks={filteredTasks} toggleTaskStatus={toggleTaskStatus} deleteTask={deleteTask} /> {/* Passando as tarefas filtradas */}
       </div>
     </section>
   );
