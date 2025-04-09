@@ -82,10 +82,10 @@ function Forms({ labelsinput, placeholderinput, btntext, btnid }) {
           <Button text={btntext} id={btnid} />
         </div>
       </form>
-      <FilterBar setFilter={setFilter} /> {/* Adicionando o FilterBar */}
+      <FilterBar setFilter={setFilter} />
       <div>
         <h3>Tarefas:</h3>
-        <TaskList tasks={filteredTasks} toggleTaskStatus={toggleTaskStatus} deleteTask={deleteTask} /> {/* Passando as tarefas filtradas */}
+        <TaskList tasks={filteredTasks} toggleTaskStatus={toggleTaskStatus} deleteTask={deleteTask} />
       </div>
     </section>
   );
