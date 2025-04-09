@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Inputs from '../inputs/inputs';
 import Dropdown from '../Dropdown/Dropdown';
 import ButtonCard from '../ButtonCard/ButtonCard';
+import Card from '../Card/Card';
 import './Forms.css';
 
 function Forms({ labelsinput, placeholderinput, labeldrop, optionsdrop, btntext, btnid, btnonclick }) {
@@ -16,8 +17,9 @@ function Forms({ labelsinput, placeholderinput, labeldrop, optionsdrop, btntext,
     Imagem: ""
   });
 
-  const [selectedOption, setSelectedOption] = useState(optionsdrop[0] || '');
+  const [selectedOption, setSelectedOption] = useState('');
   const [colaborators, setColaborators] = useState([]);
+  const [filter, setFilter] = useState('Todos');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -30,13 +32,12 @@ function Forms({ labelsinput, placeholderinput, labeldrop, optionsdrop, btntext,
     };
 
     setColaborators(prevColaborators => [...prevColaborators, newColaborator]);
-
     setFormData({
       Nome: "",
       Cargo: "",
       Imagem: ""
     });
-    setSelectedOption(optionsdrop[0] || '');
+    setSelectedOption('');
   }
 
   const handleInputChange = (field, value) => {
@@ -50,6 +51,30 @@ function Forms({ labelsinput, placeholderinput, labeldrop, optionsdrop, btntext,
     setSelectedOption(e.target.value);
   };
 
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
+
+  const categorizeColaborators = () => {
+    const categories = {
+      Aluno: [],
+      Professor: [],
+      Coordenador: [],
+      Administrativo: []
+    };
+
+    colaborators.forEach(colaborator => {
+      const Time = colaborator[labeldrop];
+      if (categories[Time]) {
+        categories[Time].push(colaborator);
+      }
+    });
+
+    return categories;
+  };
+
+  const categorizedColaborators = categorizeColaborators();
+
   return (
     <section className='forms'>
       <form onSubmit={handleSubmit}>
@@ -61,7 +86,7 @@ function Forms({ labelsinput, placeholderinput, labeldrop, optionsdrop, btntext,
               label={label}
               placehr={splitTextplacehr[index]}
               required={true}
-              value={formData[label.trim()] || ""}
+              value={formData[label.trim()]}
               onChange={(e) => handleInputChange(label.trim(), e.target.value)}
             />
           ))}
@@ -71,18 +96,36 @@ function Forms({ labelsinput, placeholderinput, labeldrop, optionsdrop, btntext,
             value={selectedOption}
             onChange={handleDropdownChange}
           />
+          <Dropdown
+            labeldrop="Selecione o time"
+            optionsdrop={['Todos', ...optionsdrop]}
+            value={filter}
+            onChange={handleFilterChange}
+          />
           <ButtonCard text={btntext} id={btnid} onclick={btnonclick} />
         </div>
       </form>
       <div>
         <h3>Colaboradores:</h3>
-        <ul>
-          {colaborators.map((colaborator, index) => (
-            <li key={index}>
-              {colaborator.Nome} - {colaborator.Cargo} - {colaborator.Imagem} - {colaborator[labeldrop]}
-            </li>
-          ))}
-        </ul>
+        {Object.keys(categorizedColaborators).map(category => (
+          <div key={category}>
+            <h4>{category}:</h4>
+            <div className="card-container">
+              {categorizedColaborators[category]
+                .filter(colaborator => 
+                  filter === 'Todos' || colaborator[labeldrop] === filter
+                )
+                .map((colaborator, index) => (
+                  <Card
+                    key={index}
+                    Nome={colaborator.Nome}
+                    Cargo={colaborator.Cargo}
+                    Time={colaborator[labeldrop]}
+                  />
+                ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

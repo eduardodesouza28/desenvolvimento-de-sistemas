@@ -1,6 +1,7 @@
 import './App.css';
 import Banner from './components/Banner/Banner';
 import Forms from './components/Forms/Forms';
+import Footer from './components/Footer/footer';
 
 
 function App() {
@@ -12,11 +13,13 @@ function App() {
       <div className="form">
         <Forms
           labelsinput="Nome,Cargo,Imagem" placeholderinput="digite seu nome,digite seu cargo,digite o url da imagem"
-          labeldrop="Time" optionsdrop={["", "Aluno", "Professor", "Coordenador", "Administrativo"]}
-          btntext="enviar" btnid="1" btnonclick="alert(teste)"/>
+          labeldrop="Time" optionsdrop={["Aluno", "Professor", "Coordenador", "Administrativo"]}
+          btntext="enviar" btnid="1" btnonclick="alert(teste)" />
+      </div>
+      <div className="footer">
+        <Footer />
       </div>
     </div>
-    
   );
 }
 
