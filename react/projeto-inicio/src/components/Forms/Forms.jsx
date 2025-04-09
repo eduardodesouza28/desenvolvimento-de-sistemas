@@ -5,6 +5,7 @@ import ButtonCard from '../ButtonCard/ButtonCard';
 import Card from '../Card/Card';
 import './Forms.css';
 
+
 function Forms({ labelsinput, placeholderinput, labeldrop, optionsdrop, btntext, btnid, btnonclick }) {
   const textLabels = labelsinput;
   const splitTextLabels = textLabels.split(",");
@@ -17,7 +18,7 @@ function Forms({ labelsinput, placeholderinput, labeldrop, optionsdrop, btntext,
     Imagem: ""
   });
 
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState(optionsdrop[0] || '');
   const [colaborators, setColaborators] = useState([]);
   const [filter, setFilter] = useState('Todos');
 
@@ -37,7 +38,7 @@ function Forms({ labelsinput, placeholderinput, labeldrop, optionsdrop, btntext,
       Cargo: "",
       Imagem: ""
     });
-    setSelectedOption('');
+    setSelectedOption(optionsdrop[0] || '');
   }
 
   const handleInputChange = (field, value) => {

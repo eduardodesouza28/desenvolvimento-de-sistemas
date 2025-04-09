@@ -7,3 +7,6 @@
   border-radius: 10px;
   color: aliceblue;
 }
+.card-container{
+  display: flex;
+}

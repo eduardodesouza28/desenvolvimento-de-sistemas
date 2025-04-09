@@ -1,39 +1,49 @@
 .Aluno{
-  display: flex;
+
   justify-content: center;
   align-items: center;
   margin: 25px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   background-color: rgb(201, 201, 201);
 }
 .Professor{
-  display: flex;
+
   justify-content: center;
   align-items: center;
   margin: 25px;
+  padding: 10px;
   background-color: rgb(125, 149, 255);
 }
 .Coordenador{
-  display: flex;
+
   justify-content: center;
   align-items: center;
   margin: 25px;
+  padding: 10px;
   background-color: rgb(255, 125, 125);
 }
 .Administrativo{
-  display: flex;
+
   justify-content: center;
   align-items: center;
   margin: 25px;
+  padding: 10px;
   background-color: rgb(125, 255, 125);
 }
-h2{
+/* h2{
   margin-right:100px;
   margin-left:10px
 }
 p{
   margin-right: 20px;
-}
+} */
 p.time{
   text-emphasis: bold;
-  margin-right: 20px;
+  /* margin-right: 20px; */
+}
+
+Card {
+  padding: 10px;
 }
