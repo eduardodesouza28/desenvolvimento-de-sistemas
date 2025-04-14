@@ -2,6 +2,7 @@
   "dependencies": {
     "grommet": "^2.45.1",
     "grommet-icons": "^4.12.4",
+    "react-router-dom": "^7.5.0",
     "styled-components": "^6.1.15"
   }
 }
