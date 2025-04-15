@@ -1,0 +1,35 @@
+2025-04-15T20:04:01.269Z - Tarefa criada: {"id":1,"titulo":"titulo","descricao":"descricao","responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:04:34.150Z - Tarefa criada: {"id":1,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:06:31.822Z - Tarefa criada: {"id":2,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:06:56.544Z - Tarefa criada: {"id":1,"titulo":"titulo","descricao":"descricao","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"baixa"}
+2025-04-15T20:07:35.950Z - Tarefa atualizada: undefined
+2025-04-15T20:08:06.800Z - Tarefa atualizada: {}
+2025-04-15T20:08:40.705Z - Tarefa criada: {"id":1,"titulo":"titulo","descricao":"descricao","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"baixa"}
+2025-04-15T20:08:51.039Z - Tarefa criada: {"id":1,"titulo":"titulo","descricao":"descricao","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"baixa"}
+2025-04-15T20:09:03.018Z - Tarefa criada: {"id":2,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:09:10.789Z - Tarefa atualizada: {}
+2025-04-15T20:09:18.455Z - Tarefa atualizada: {}
+2025-04-15T20:09:23.857Z - Tarefa criada: {"id":2,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:09:52.848Z - Tarefa criada: {"id":1,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:10:09.056Z - Tarefa atualizada: {"id":1,"titulo":"titulo1","descricao":"descricao1","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"moderada"}
+2025-04-15T20:10:19.557Z - Tarefa atualizada: {"titulo":"titulo1","descricao":"descricao1","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"moderada"}
+2025-04-15T20:10:48.530Z - Tarefa atualizada: {"id":1,"titulo":"titulo1","descricao":"descricao1","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"moderada"}
+2025-04-15T20:14:13.843Z - Tarefa criada: {"id":3,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:14:25.867Z - Tarefa criada: {"id":4,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:14:27.827Z - Tarefa criada: {"id":5,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:14:28.004Z - Tarefa criada: {"id":6,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:14:28.139Z - Tarefa criada: {"id":7,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:14:28.313Z - Tarefa criada: {"id":8,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:14:40.221Z - Tarefa atualizada: {"id":4,"titulo":"titulo1","descricao":"descricao1","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"moderada"}
+2025-04-15T20:15:32.622Z - Tarefa atualizada: {"id":3}
+2025-04-15T20:16:02.034Z - Tarefa deletada: ID 3
+2025-04-15T20:20:51.033Z - Todas as tarefas deletadas para o responsável: eduardo
+2025-04-15T20:20:56.552Z - Tarefa criada: {"id":1,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:20:56.716Z - Tarefa criada: {"id":2,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:20:56.909Z - Tarefa criada: {"id":3,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:20:57.101Z - Tarefa criada: {"id":4,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:20:57.289Z - Tarefa criada: {"id":5,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:20:57.500Z - Tarefa criada: {"id":6,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:20:57.695Z - Tarefa criada: {"id":7,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:20:59.061Z - Tarefa criada: {"id":8,"titulo":"titulo2","descricao":"descricao2","concluida":false,"responsavel":"eduardo","prazo":"2025-04-20","sprint":2,"prioridade":"alta"}
+2025-04-15T20:22:27.991Z - Tarefa marcada como concluída: ID 3
