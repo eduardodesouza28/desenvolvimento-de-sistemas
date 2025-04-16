@@ -25,7 +25,9 @@ function Sobre() {
         <h2>Tecnologias Utilizadas</h2>
         <p>Para dar vida a este projeto, utilizamos um conjunto de tecnologias modernas e eficientes:</p>
         <ul>
-          <li>html,css,js</li>
+          <li>html</li>
+          <li>css</li>
+          <li>js</li>
         </ul>
       </section>
     </div>

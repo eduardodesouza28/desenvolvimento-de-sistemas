@@ -46,7 +46,8 @@ function Projeto() {
           <div className="toggle-content">
             <div className="screenshots">
               <img src="src/assets/flappy.png" alt="Tela inicial do jogo" className="responsive" />
-              {/* <img src="https://raw.githubusercontent.com/eduardodesouza28/desenvolvimento-de-sistemas/main/jogo_teste/screenshot2.png" alt="Jogabilidade" className="responsive" /> */}
+              <img src="src/assets/gameOver.png" alt="Tela de gamae over" className="responsive" />
+              
             </div>
             <p>As imagens acima mostram a interface do jogo e a jogabilidade em ação.</p>
           </div>
@@ -54,8 +55,7 @@ function Projeto() {
 
         <h3>Como Jogar</h3>
         <p>
-          [Inserir aqui as instruções básicas de como jogar, controles, objetivos etc.]
-          Exemplo: Use as setas do teclado para mover o personagem e evite os obstáculos enquanto coleta os itens para pontuar.
+          mova o passaro para cima e para baixo usando a barra de espaço, pontue passando pelos canos. :)
         </p>
       </section>
 
@@ -74,12 +74,6 @@ function Projeto() {
               <li><strong>Controle de Versão:</strong> Git/GitHub</li>
               <li><strong>Assets:</strong> imagens do jogo Flappy Bird</li>
             </ul>
-
-            <h3>Estrutura do Código</h3>
-            <p>
-              O projeto está organizado em [descrever a estrutura de pastas e arquivos principais].
-              Os principais componentes incluem [mencionar arquivos/chaves do projeto].
-            </p>
           </div>
         )}
       </section>
