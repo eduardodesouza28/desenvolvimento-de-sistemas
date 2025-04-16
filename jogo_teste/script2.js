@@ -31,6 +31,7 @@ class Player extends Entity {
 		this.jumping = false
 		this.onRoof = false
 		this.spacePressed = false
+		this.start = false
 	}
 
 	draw() {
@@ -148,9 +149,12 @@ class Game {
 					this.player.jumping = true
 				this.player.jumpVelocity = 5
 				this.player.onGround = false
+				this.player.start = true
 				this.player.spacePressed = true
 				if (this.gameover) {
 					location.reload()
+					this.player.start = true
+
 				}
 			}
 		})
@@ -213,15 +217,18 @@ class Game {
 	}
 
 	loop() {
+
 		ctx.clearRect(0, 0, canvas.width, canvas.height)
-		this.player.jump()
-		this.moveObstacles()
-		this.verifyCollision()
-		this.resetObstacles()
-		this.obstacle1.draw()
-		this.obstacle2.draw()
+		if (this.player.start) {
+			this.player.jump()
+			this.moveObstacles()
+			this.verifyCollision()
+			this.resetObstacles()
+			this.obstacle1.draw()
+			this.obstacle2.draw()
+			this.drawPoints()
+		}
 		this.player.draw()
-		this.drawPoints()
 		requestAnimationFrame(() => this.loop())
 	}
 }
