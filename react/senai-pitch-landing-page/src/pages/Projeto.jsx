@@ -78,6 +78,15 @@ function Projeto() {
         )}
       </section>
 
+        <h2>jogar</h2>
+          <a href="https://eduardodesouza28.github.io/desenvolvimento-de-sistemas/jogo_teste"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn">
+            Jogar Online
+          </a>
+
+
       <section id="project-resources">
         <h2>Acesso ao Projeto</h2>
         <p>
