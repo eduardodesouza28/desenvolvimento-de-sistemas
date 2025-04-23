@@ -106,7 +106,6 @@ function Projeto() {
           <ol>
             <li>Clone o repositório</li>
             <li>Abra o arquivo index.html em seu navegador</li>
-            <li>Ou siga as instruções específicas do README.md</li>
           </ol>
         </p>
       </section>
